@@ -1,4 +1,4 @@
-import jdk.jfr.Description;
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -59,10 +59,21 @@ public class BurgerTest {
     @Test
     @Description("Проверка перемещения ингридиента")
     public void testMoveIngredient() {
-        burger.addIngredient(new Ingredient(IngredientType.FILLING, name, price));
-        burger.addIngredient(new Ingredient(IngredientType.SAUCE, name, price));
+
+        Ingredient firstIngredient = Mockito.mock(Ingredient.class);
+        Ingredient secondIngredient = Mockito.mock(Ingredient.class);
+
+
+        burger.addIngredient(firstIngredient);
+        burger.addIngredient(secondIngredient);
+
+
         burger.moveIngredient(1, 0);
+
+
         assertEquals(2, burger.ingredients.size());
+        assertEquals(secondIngredient, burger.ingredients.get(0));
+        assertEquals(firstIngredient, burger.ingredients.get(1));
     }
 
     @Test
