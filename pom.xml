@@ -16,6 +16,7 @@
         <junit.version>5.9.2</junit.version>
         <mockito.version>5.3.1</mockito.version>
         <jacoco.version>0.8.10</jacoco.version>
+        <allure.version>2.15.0</allure.version>
         <!-- Минимальный процент покрытия кода -->
         <jacoco.min.line.coverage>0.80</jacoco.min.line.coverage>
         <jacoco.min.branch.coverage>0.70</jacoco.min.branch.coverage>
@@ -60,6 +61,13 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-rest-assured</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
